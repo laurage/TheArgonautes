@@ -1,11 +1,17 @@
 Rails.application.routes.draw do
-  get 'users/new'
-
-  get 'users/update'
 
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   root to: 'pages#home'
+  resources :users, only: [:show, :edit, :update]   do
+    resources :booking, only: [:create]
+  end
+
   resources :events
+  get 'my_event', to: 'event#my_event'
+
+
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
