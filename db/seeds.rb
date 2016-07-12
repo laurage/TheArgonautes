@@ -7,8 +7,9 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 Event.destroy_all
 User.destroy_all
+
 5.times do
-  user = User.new(
+  user = User.new( {
     email: Faker::Internet.email,
     password: Faker::Number.number(10),
     created_at: nil,
@@ -18,11 +19,11 @@ User.destroy_all
     picture: Faker::Avatar.image,
     description: "Loves cooking, reading and watching leaves falling from trees",
     address: Faker::Address.street_address,
-    phone_number: Faker::PhoneNumber.phone_number)
+    phone_number: Faker::PhoneNumber.phone_number})
   user.save
     3.times do
       time_start = Faker::Time.forward(23, :morning)
-      event = Event.new(
+      event = Event.new({
         title: Faker::Hipster.sentence(3),
         time_start: time_start,
         time_end: time_start + 2.hour,
@@ -41,13 +42,13 @@ User.destroy_all
         keywords: Faker::Superhero.name,
         price: Faker::Number.between(1, 100),
         user: user
-        )
+        })
       event.save
     end
 
 end
 50.times do
-  user = User.new(
+  user = User.new({
     email: Faker::Internet.email,
     password: Faker::Number.number(10),
     created_at: nil,
@@ -57,7 +58,7 @@ end
     picture: Faker::Avatar.image,
     description: "Loves cooking, reading and watching leaves falling from trees",
     address: Faker::Address.street_address,
-    phone_number: Faker::PhoneNumber.phone_number)
+    phone_number: Faker::PhoneNumber.phone_number})
   user.save
 end
 

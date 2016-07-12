@@ -1,2 +1,34 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="wrapper home-header">
+  <div class="container">
+    <div class = "row">
+      <div class = "col-xs-12 col-sm-12">
+      <h1>Goldfish</h1>
+      <p>Explore the world, discover new friends.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+ <div class="wrapper cards-home">
+  <div class="container">
+    <div class = "row">
+      <% @events.each do |event| %>
+        <div class = "col-xs-12 col-sm-4">
+          <div class="card-home">
+            <div class="card-content-left">
+              <p class= "card-category"><% event.category %></p>
+              <h1 class= "card-title"> event.title </h1>
+              <p class= "card-location">Paris 15è</p>
+            </div>
+            <div class="card-content-right">
+              <p class= "card-avatar avatar"></p>
+              <p class= "card-star"><i class="fa fa-star-o" aria-hidden="true"></i></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<!-- <% image_tag "http://placehold.it/50x50" %>-->
