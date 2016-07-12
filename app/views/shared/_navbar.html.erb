@@ -16,32 +16,39 @@
       </button>
     </form>
 
-    <!-- Text link -->
-    <a href="" class="navbar-wagon-item navbar-wagon-link">My events</a>
+    <!-- Different navigation if login or not -->
+    <% if user_signed_in? %>
 
-    <!-- Notification link-->
-<!--     <a href="" class="navbar-wagon-item navbar-wagon-link">
-      <div class="badge-container">
-        <i class="fa fa-envelope-o"></i>
-        <div class="badge badge-blue">3</div>
+      <!-- Text link -->
+      <a href="" class="navbar-wagon-item navbar-wagon-link">My events</a>
+
+      <!-- Notification link-->
+  <!--     <a href="" class="navbar-wagon-item navbar-wagon-link">
+        <div class="badge-container">
+          <i class="fa fa-envelope-o"></i>
+          <div class="badge badge-blue">3</div>
+        </div>
+      </a> -->
+
+      <!-- Profile picture and dropdown -->
+      <div class="navbar-wagon-item">
+        <div class="dropdown">
+          <img src= <%=current_user.picture%> class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
+          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Log Out</a></li>
+          </ul>
+        </div>
       </div>
-    </a> -->
 
-    <!-- Profile picture and dropdown -->
-    <div class="navbar-wagon-item">
-      <div class="dropdown">
-        <img src= <%=current_user.picture%> class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
-        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-          <li><a href="#">Profile</a></li>
-          <li><a href="#">Log Out</a></li>
-        </ul>
-      </div>
-    </div>
+      <!-- Button (call-to-action) -->
+      <a href="" class="navbar-wagon-item navbar-wagon-button btn">Create an event</a>
+    <% else %>
+      <!-- Login text link -->
+      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
-    <!-- Button (call-to-action) -->
-    <a href="" class="navbar-wagon-item navbar-wagon-button btn">Create an event</a>
+    <% end %>
   </div>
-
   <!-- Dropdown appearing on mobile only -->
   <div class="navbar-wagon-item hidden-md hidden-lg">
     <div class="dropdown">
