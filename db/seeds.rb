@@ -24,7 +24,7 @@ User.destroy_all
     3.times do
       time_start = Faker::Time.forward(23, :morning)
       event = Event.new({
-        title: Faker::Hipster.sentence(3),
+        title: Faker::Hipster.sentence(1),
         time_start: time_start,
         time_end: time_start + 2.hour,
         capacity: Faker::Number.between(1, 100),
