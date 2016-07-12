@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_many :bookings, dependent: :destroy
+   has_many :bookings, dependent: :destroy
   has_many :events, through: :bookings
   has_many :events, dependent: :destroy
 

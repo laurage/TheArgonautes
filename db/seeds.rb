@@ -9,7 +9,7 @@ Event.destroy_all
 User.destroy_all
 
 5.times do
-  user = User.new({
+  user = User.new( {
     email: Faker::Internet.email,
     password: Faker::Number.number(10),
     created_at: nil,
