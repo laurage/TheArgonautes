@@ -68,7 +68,7 @@ class EventsController < ApplicationController
                                       :address_street,
                                       :address_postcode,
                                       :address_city,
-                                      :address_contry,
+                                      :address_country,
                                       :distinguishing_feature,
                                       :wedding_list,
                                       :category,
