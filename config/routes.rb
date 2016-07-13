@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   get 'users/my_events' => 'users#my_events', as: :user_my_events
+
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   root to: 'pages#home'
   resources :users, only: [:show, :edit, :update]   do
@@ -10,6 +11,9 @@ Rails.application.routes.draw do
   resources :events do
     resources :bookings, only:[:create, :destroy]
   end
+
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
