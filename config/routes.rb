@@ -5,8 +5,10 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :update]
 
   resources :events do
-    resources :booking, only:[:create]
+    resources :bookings, only:[:create, :destroy]
   end
+
+  # get 'bookings/:id/destroy' => 'bookings#destroy', as: :bookings_destroy
 
   get 'users/my_events' => 'user#my_events', as: :user_my_events
   # The priority is based upon order of creation: first created -> highest priority.

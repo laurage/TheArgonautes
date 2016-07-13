@@ -1,3 +1,49 @@
-<h1><%= @event.title %></h1>
+<div class="wrapper event-page-header">
+  <div class="container">
+    <div class = "row">
+      <div class = "col-xs-12 col-sm-12">
+        <h1><%= @event.title %></h1>
+      </div>
+    </div>
+  </div>
+</div>
 
-<%= link_to "Book the event", event_booking_index_path(@event.id) %>
+<div class="wrapper event-page-content">
+  <div class="container">
+    <div class = "row">
+      <div class = "col-xs-12 col-sm-12">
+        <p><%= image_tag @event.picture, size: "450x100" %></p>
+        <p><%= @event.title %></p>
+        <p><%= @event.category %></p>
+        <p><%= @event.keywords %></p>
+        <p><%= @event.description %></p>
+        <p><%= image_tag @event.user.picture, size: "50x50" %></p>
+        <p><%= @event.price %></p>
+        <p><%= @event.location_title %></p>
+
+        <p><%= @event.address_number %></p>
+        <p><%= @event.address_street %></p>
+        <p><%= @event.address_postcode %></p>
+        <p><%= @event.address_city %></p>
+        <p><%= @event.address_contry %></p>
+        <p><%= @event.time_start %></p>
+        <p><%= @event.time_end %></p>
+        <p><%= @event.capacity %></p>
+        <p><%= @event.distinguishing_feature %></p>
+        <p><%= @event.wedding_list %></p>
+
+
+        <%= link_to "Book the event", event_bookings_path(@event), method: :post %>
+        <% if user_signed_in? %>
+        <% current_user.bookings.each do |b| %>
+         <% if b.event == @event %>
+          <p><%= link_to "Unbook the event", event_booking_path(@event, b), method: :delete %></p>
+          <% end %>
+        <%end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+

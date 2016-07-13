@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :set_event, only: [:show, :create, :destroy]
 
   def index
     @bookings = Booking.all
@@ -13,25 +13,33 @@ class BookingsController < ApplicationController
   end
 
   def create
-    # @booking = Booking.new(booking_params)
-    # if @booking.save
-    #   redirect_to @booking, notice: 'Booking was successfully created.'
-    # else
-    #   render :new
-    # end
-    # @event = Event.find(params[:id])
-    redirect_to root_path
+    # similaire à ligne du dessous, mais plus clean:
+    #@booking = Booking.new(user_id: current_user.id, event_id: params[:event_id])
+    @booking = Booking.new(user: current_user, event: @event)
+    if @booking.save
+      redirect_to event_path(@event)
+    else
+      render "events/show"
+    end
   end
 
   def destroy
-    @booking.destroy
-    redirect_to bookings_url, notice: 'Booking was successfully destroyed.'
+    @booking =  Booking.find(params[:id])
+    if @booking.destroy
+      redirect_to event_path(@event), notice: 'Booking was successfully destroyed.'
+    else
+      render "events/show"
+    end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_event
-      @booking = Booking.find(params[:id])
+      @event = Event.find(params[:event_id])
+
+    end
+
+    def set_booking
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
