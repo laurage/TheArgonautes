@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row text-center">
+    <div class="col-sm-6 col-sm-offset-3">
+      <ul class="product-controls">
+        <img src= <%= "#{@user.picture}" %> alt="user" class="avatar-very-large">
+        <br><%= @user.first_name %> <%= @user.last_name %>
+        <br><%= @user.email %>
+        <br><%= @user.description %>
+        <br><%= @user.address %>
+        <br><%= @user.phone_number %>
+      </ul>
+    </div>
+  </div>
+</div>
