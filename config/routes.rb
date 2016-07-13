@@ -7,11 +7,9 @@ Rails.application.routes.draw do
     resources :booking, only: [:create]
   end
 
-  resources :events
-
-
-
-
+  resources :events do
+    resources :booking, only:[:create]
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
