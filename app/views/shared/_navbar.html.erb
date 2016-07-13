@@ -42,7 +42,7 @@
       </div>
 
       <!-- Button (call-to-action) -->
-      <a href="" class="navbar-wagon-item navbar-wagon-button btn">Create an event</a>
+      <%= link_to t(".top_call_to_action", default: "Create an event"), new_event_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
     <% else %>
       <!-- Login text link -->
       <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
