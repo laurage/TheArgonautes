@@ -1,0 +1,80 @@
+
+  .card-home{
+    height: 175px;
+    // text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+    background-size: cover !important;
+    color: white;
+    position: relative;
+    display: flex;
+    background-color: $yellow;
+    justify-content: space-between;
+    padding: 20px 20px;
+    margin: 20px 0px;
+    position: relative;
+
+  .card-category {
+    position: absolute;
+    // top: 10px;
+    // left: 10px;
+    font-size: 10px;
+    text-transform: uppercase;
+  }
+
+  .card-title{
+    font-size: 15px;
+  }
+
+  .card-location{
+    position: absolute;
+    font-size: 10px;
+    bottom: 10px;
+  }
+
+  .card-star{
+    font-size: 25px;
+    //bottom: 10px;
+    position: absolute;
+    bottom: 5px;
+    right: 20px;
+  }
+
+  .card-avatar{
+    // position: absolute;
+    // top: 5px;
+  }
+
+  .card-content-right{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .card-link {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    z-index:2;
+    background: black;
+    opacity: 0;
+  }
+  .card-link:hover{
+    opacity: 0.1;
+  }
+
+  .white-rectangle{
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background-color: white;
+    opacity: 0;
+
+    &:hover{
+      opacity: 0.5;
+    }
+  }
+
+
+}
