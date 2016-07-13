@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
   has_many :events, through: :bookings
   has_many :events, dependent: :destroy
 
+  has_many :bookings
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -21,5 +23,15 @@ class User < ActiveRecord::Base
       user.token = auth.credentials.token
       user.token_expiry = Time.at(auth.credentials.expires_at)
     end
+  end
+
+  def my_events
+    # TODO
+    # return events user is participatings
+    my_events = []
+    self.bookings.each do |b|
+      my_events << b.event
+    end
+    return my_events
   end
 end
