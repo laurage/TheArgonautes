@@ -34,7 +34,7 @@ User.destroy_all
         address_number: Faker::Address.building_number,
         address_street: Faker::Address.street_name,
         address_postcode: Faker::Address.postcode,
-        address_city: Faker::Address.city,
+        address_city: ["paris", "london", "nantes", "berlin", "bordeaux"].sample,
         address_country: Faker::Address.country,
         distinguishing_feature: Faker::StarWars.vehicle,
         wedding_list: Faker::Beer.name,
