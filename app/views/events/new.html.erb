@@ -1,5 +1,5 @@
 <div class="container">
-  <h1>coucou</h1>
+  <h1>Create a new event</h1>
   <%= simple_form_for @event, url: events_path, method: :post, as: 'event'  do |f| %>
     <%= f.input :title, placeholder: 'Title of your event' %>
     <%= f.input :description, placeholder: 'Description of your event' %>
