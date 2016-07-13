@@ -30,6 +30,12 @@ class EventsController < ApplicationController
   # POST / events.json
   def create
     @event = Event.new(event_params)
+    @event.user = current_user
+    if @event.user.picture == NilClass
+      @event.user.picture = "https://d13yacurqjgara.cloudfront.net/users/8106/screenshots/2834222/first.png"
+    else
+    end
+
     if @event.save
       redirect_to @event, notice: 'Event was successfully created.'
     else
