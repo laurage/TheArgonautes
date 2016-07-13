@@ -24,4 +24,14 @@ class User < ActiveRecord::Base
       user.token_expiry = Time.at(auth.credentials.expires_at)
     end
   end
+
+  def my_events
+    # TODO
+    # return events user is participatings
+    my_events = []
+    self.bookings.each do |b|
+      my_events << b.event
+    end
+    return my_events
+  end
 end

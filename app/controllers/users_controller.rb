@@ -6,6 +6,6 @@ class UsersController < ApplicationController
   end
 
   def my_events
-    @my_events = Event.find_by
+    @my_events = current_user.my_events
   end
 end

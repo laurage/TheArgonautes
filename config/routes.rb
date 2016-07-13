@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'users/my_events' => 'users#my_events', as: :user_my_events
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   root to: 'pages#home'
   resources :users, only: [:show, :edit, :update]   do
@@ -7,7 +8,7 @@ Rails.application.routes.draw do
   end
 
   resources :events
-  get 'my_event', to: 'event#my_event'
+
 
 
 
