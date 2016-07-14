@@ -2,19 +2,26 @@
   <div class="container">
     <div class = "row">
       <% @events.each do |event| %>
-        <div class = "col-xs-12 col-sm-4">
+        <div class = "col-xs-12 col-sm-6">
           <div class="card-wrapper-link">
             <%= link_to event_path(event) do%>
               <div class="card-home">
                 <div class = "white-rectangle"> </div>
-                  <div class="card-content-left">
+                  <div class="card-content-block-1">
                     <p class= "card-category"><%= event.category %></p>
-                    <h1 class= "card-title"><%= event.title %></h1>
+                    <p class= "card-heart"><i class="fa fa-heart-o" aria-hidden="true"></i></p>
+                  </div>
+                  <div class="card-content-block-2">
+                    <p><%= image_tag event.picture, {size: "120x120", class: "card-event-picture"} %></p>
+                  </div>
+                  <div class="card-content-block-3">
+                    <h2 class= "card-title"><%= event.title %></h2>
                     <p class= "card-location"><%= event.address_city %></p>
                   </div>
-                  <div class="card-content-right">
-                    <p class= "card-avatar avatar"><%= image_tag event.user.picture, size: "50x50" %></p>
-                    <p class= "card-star"><i class="fa fa-star-o" aria-hidden="true"></i></p>
+                  <div class="card-content-block-4">
+                    <p><%= image_tag event.user.picture, {size: "50x50", class: "card-avatar-picture"} %></p>
+                    <p class= "card-price">€<%= event.price %></p>
+                    <p class= "card-price"><%= event.capacity %></p>
                   </div>
                 </div>
               <% end %>
