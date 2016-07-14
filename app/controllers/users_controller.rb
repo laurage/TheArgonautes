@@ -10,7 +10,13 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def edit
+    @user = User.find(current_user)
+  end
+
   def update
+    @user = User.find(current_user)
+    @user.update(params[:user])
   end
 
   def my_events
