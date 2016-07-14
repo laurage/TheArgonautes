@@ -4,6 +4,7 @@
       <div class = "col-xs-12 col-sm-12">
       <h1>THE ARGONAUTES</h1>
       <p>Explore the world, discover new friends.</p>
+      <%= image_tag("logo.png", height: 100, width: 100) %>
       </div>
     </div>
   </div>
@@ -30,5 +31,4 @@
   </div>
 </div>
 
-
-<%= render 'shared/event_search' %>
+<%= render 'shared/event_search', { events: @events } %>

@@ -16,10 +16,15 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(current_user)
-    @user.update(params[:user])
+    @user.update(user_params)
+    render :show
   end
 
   def my_events
     @my_events = current_user.my_events
+  end
+  private
+  def user_params
+      params.require(:user).permit(:description)
   end
 end
