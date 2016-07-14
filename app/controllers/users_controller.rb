@@ -16,7 +16,8 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(current_user)
-    @user.update(params[:user])
+    @user.update(user_params)
+    render :show
   end
 
   def my_events
@@ -43,5 +44,9 @@ class UsersController < ApplicationController
     end
     @my_past_events.sort_by! { |k| -k[:time_start].to_i }
     @my_futur_events.sort_by! { |k| k[:time_start].to_i }
+  end
+  private
+  def user_params
+      params.require(:user).permit(:description)
   end
 end
