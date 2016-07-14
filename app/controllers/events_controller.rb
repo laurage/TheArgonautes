@@ -5,12 +5,17 @@ class EventsController < ApplicationController
   # GET / events
   # GET / events.json
   def index
-    #@events = Event.where(category: params[:category])
-    # if params[:category] == nil
-    #   p "UU"
-    # end
 
-    @events = Event.where(category: params[:category], address_city: params[:address_city])
+    search_keys = [:category, :address_city]
+    search_params = {}
+
+    search_keys.each do |key|
+      if params[key] != ""
+        search_params[key] = params[key]
+      end
+    end
+
+    @events = Event.where(search_params)
   end
 
   # GET / events/1
