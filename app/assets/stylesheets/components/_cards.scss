@@ -1,52 +1,69 @@
 
-  .card-home{
-    height: 175px;
-    // text-shadow: 0 1px 3px rgba(0,0,0,0.6);
-    background-size: cover !important;
-    color: white;
-    position: relative;
-    display: flex;
-    background-color: $yellow;
-    justify-content: space-between;
-    padding: 20px 20px;
-    margin: 20px 0px;
-    position: relative;
+.card-home{
+  height: 160px;
+  // text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  background-size: cover !important;
+  color: $black;
+  // position: relative;
+  display: flex;
+  background-color: $gray-light;
+  justify-content: space-between;
+  padding: 20px 20px;
+  margin: 20px 0px;
+  position: relative;
+  font-size: 14px;
+  font-weight: 700;
 
-  .card-category {
-    position: absolute;
-    // top: 10px;
-    // left: 10px;
-    font-size: 10px;
-    text-transform: uppercase;
+
+  .card-content-block-1{
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: space-between;
+
+    .card-category {
+      // position: absolute;
+      // top: 10px;
+      // left: 10px;
+      text-transform: uppercase;
+    }
+
+    .card-heart{
+      font-size: 25px;
+      //bottom: 10px;
+      // position: absolute;
+      // bottom: 5px;
+      // right: 20px;
+      color: $gray;
+    }
+
   }
 
-  .card-title{
-    font-size: 15px;
+  .card-content-block-2{
+
+    .card-event-picture{
+      border-radius: 50%;
+      border-width: 5px;
+      border-color: $green;
+    }
   }
 
-  .card-location{
-    position: absolute;
-    font-size: 10px;
-    bottom: 10px;
+  .card-content-block-3{
+    .card-title{
+    }
+
+    .card-location{
+      // position: absolute;
+      bottom: 10px;
+    }
+
   }
 
-  .card-star{
-    font-size: 25px;
-    //bottom: 10px;
-    position: absolute;
-    bottom: 5px;
-    right: 20px;
-  }
-
-  .card-avatar{
+  .card-content-block-4{
+   .card-avatar-picture{
     // position: absolute;
     // top: 5px;
-  }
-
-  .card-content-right{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    border-radius: 50%;
+    }
   }
 
   .card-link {
@@ -75,6 +92,4 @@
       opacity: 0.5;
     }
   }
-
-
 }
