@@ -9,7 +9,37 @@
   .form-home{
     background-color: $gray-lighter;
     border-radius: 10px;
+    padding: 10px;
+    display:flex;
+    justify-content: center;
+  }
+
+  .btn-search{
+    background-color: $green;
+  }
+
+  form{
+    display: flex;
+    justify-content: space-between;
+    width: 500px;
+  }
+  .form-box {
+    font-size: 8px;
+    width: 80px;
+    border:none;
+    font-size:12px;
+    color:$black;
+    border-radius: 5px;
+    background-color: white;
     padding: 5px;
+
+  }
+
+  .form-box-longer{
+    width:120px;
+  }
+    .btn-submit{
+    background-color: $green;
   }
 }
 
