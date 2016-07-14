@@ -1,7 +1,7 @@
 <div class="wrapper home-header">
   <div class="container">
     <div class = "row">
-      <div class = "col-xs-12 col-sm-12">
+      <div class = "col-lg-12 col-sm-12">
       <h1>THE ARGONAUTES</h1>
       <p>Explore the world, discover new friends.</p>
       </div>
@@ -15,14 +15,20 @@
       <div class = "col-xs-12 col-sm-12">
        <div class="form-home">
           <form action = "events" method = "get" >
-            <select name="category">
-              <option value="fishing">Fishing</option>
-              <option value="opera" selected>Opera</option>
-              <option value="food">Food</option>
-            </select>
-            <input type="text" placeholder ="Where?" name="address_city">
-           <input type="text" placeholder ="When?" name="time_start">
-           <input type="submit" value="Search" class="btn btn-search">
+                <select class = "form-box form-box-longer" name="category">
+                  <option selected disabled>What?</option>
+                  <option value="fishing">Fishing</option>
+                  <option value="opera">Opera</option>
+                  <option value="food">Food</option>
+                </select>
+
+
+                <input class = "form-box form-box-longer" type="text" placeholder ="Where?" name="address_city">
+
+                <input class = "form-box" type="text" placeholder ="When?" name="time_start">
+
+                <input class = "form-box btn-submit" type="submit" value="Search">
+
           </form>
         </div>
       </div>

@@ -8,14 +8,17 @@
               <div class="card-home">
                 <div class = "white-rectangle"> </div>
                   <div class="card-content-block-1">
-                    <p class= "card-category"><%= event.category %></p>
                     <p class= "card-heart"><i class="fa fa-heart-o" aria-hidden="true"></i></p>
+                    <p class= "card-number-likes"><%= 25 %></p>
                   </div>
                   <div class="card-content-block-2">
-                    <p><%= image_tag event.picture, {size: "120x120", class: "card-event-picture"} %></p>
+                    <p><%= image_tag event.picture, {size: "90x90", class: "card-event-picture"} %></p>
                   </div>
                   <div class="card-content-block-3">
-                    <h2 class= "card-title"><%= event.title %></h2>
+                    <div class="card-top-div">
+                      <h2 class= "card-title"><%= event.title %></h2>
+                      <p class= "card-category"><%= event.category %></p>
+                    </div>
                     <p class= "card-location"><%= event.address_city %></p>
                   </div>
                   <div class="card-content-block-4">
