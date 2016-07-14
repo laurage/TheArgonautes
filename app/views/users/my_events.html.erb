@@ -1,5 +1,4 @@
-
-<% @my_events.each do |event| %>
-  <%= event.title %><br>
-<% end %>
-<%= link_to 'Back to index', root_path %>
+<h1>My futur events</h1>
+<%= render 'shared/event_search', { events: @my_past_events } %>
+<h1>My past events</h1>
+<%= render 'shared/event_search', { events: @my_futur_events } %>
