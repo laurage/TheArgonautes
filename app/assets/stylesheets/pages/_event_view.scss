@@ -1,0 +1,45 @@
+.event-page-content{
+  .event-image-block{
+    text-align:center;
+    display: block;
+
+    .event-image{
+      border-radius: 50%;
+      margin: 25px 0 0 0;
+    }
+  }
+
+  .event-top-right-box{
+    margin: 25px 0 0 0;
+
+    .event-capitaine-avatar{
+      border-radius: 50%;
+    }
+
+    .event-category {
+      // position: absolute;
+      // top: 10px;
+      text-transform: uppercase;
+      text-align: left;
+      font-weight: 100;
+
+    }
+
+  }
+
+  .event-main-center{
+
+  }
+
+  .event-details-right{
+
+  }
+
+  .event-more-bottom{
+
+  }
+
+  .even-users-bottom{
+
+  }
+}

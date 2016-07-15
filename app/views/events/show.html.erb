@@ -1,54 +1,90 @@
 <div class="wrapper event-page-content">
   <div class="container">
     <div class = "row">
-      <div class = "col-xs-12 col-sm-6 col-sm-offset-3">
-        <p><%= image_tag @event.picture %></p>
-        <p><%= @event.title %></p>
-        <p><%= @event.category %></p>
-        <p><%= @event.keywords %></p>
-        <p><%= @event.description %></p>
-        <p><%= @event.user.picture %></p>
-        <p><%= @event.price %></p>
-        <p><%= @event.location_title %></p>
+      <div class = "col-xs-12 col-sm-4 col-sm-offset-2">
 
-        <p><%= @event.address_number %> <%= @event.address_street %></p>
-        <p><%= @event.address_postcode %><%= @event.address_city %> <%= @event.address_country %></p>
-        <p>Event start at :    <%= @event.time_start %></p>
-        <p>Event finished at : <%= @event.time_end %></p>
-        <p>Capacity of event : <%= @event.capacity %></p>
-        <p><%= @event.distinguishing_feature %></p>
-        <p><%= @event.wedding_list %></p>
-
-
-
-<p>solution test</p>
-<% if user_signed_in? %>
-  <% if current_user.id == @event.user_id %>
-    <p>il est capitaine</p>
-    <%= link_to "Edit this event", edit_event_path(@event), method: :get, class: "btn btn-success" %>
-    <%= link_to "Delete this event", event_path(@event), method: :delete, class: "btn btn-success" %>
-  <% else %>
-    <p>il n'est pas capitaine</p>
-    <% if current_user.bookings.where(event_id: @event.id).to_a == [] %>
-      <p>il n'est pas booké</p>
-      <%= link_to "Book the event", event_bookings_path(@event), method: :post, class: "btn btn-success" %>
-    <% else %>
-      <p>il est booké</p>
-      <% booking = {} %>
-      <% booking = current_user.bookings.find_by(event_id: @event.id).id %>
-      <%= link_to "Unbook the event", event_booking_path(@event, booking), method: :delete, class: "btn btn-warning" %>
-    <% end %>
-  <% end %>
-  <% else %>
-   <p>You need to login to booked</p>
-  <% end %>
-
-        <div class = "row">
-          <div class = "col-lg-12 col-sm-12">
-          <p>List of participants at the event</p>
-            <%= render 'users/user_card', { users: @users_of_event } %>
-          </div>
+        <div class="event-image-block">
+          <p><%= image_tag "badge_square_nature.png", {class: "event-image"} %></p>
+  <!--         @event.picture -->
         </div>
+
+      </div>
+      <div class = "col-xs-12 col-sm-3 col-sm-offset-1">
+
+        <div class="event-top-right-box">
+          <p><%= image_tag @event.user.picture, {size: "90x90", class: "event-capitaine-avatar"} %></p>
+          <p class="event-category"><%= @event.category %></p>
+          <p><%= @event.time_start.strftime("%A %d %B %Y, %I:%M %p") %></p>
+          <p>For : <%= ((@event.time_end - @event.time_start)/1200).to_i %> hours</p>
+        </div>
+      </div>
+    </div>
+
+    <div class = "row">
+      <div class = "col-xs-12 col-sm-4 col-sm-offset-2">
+
+        <div class="event-main-center">
+          <p><%= @event.title %></p>
+          <p><%= @event.location_title %></p>
+          <p><%= @event.description %></p>
+        </div>
+      </div>
+
+      <div class = "col-xs-12 col-sm-3 col-sm-offset-1">
+        <div class="event-details-right">
+          <p><%= @event.address_number %> <%= @event.address_street %></p>
+          <p><%= @event.address_postcode %><%= @event.address_city %> <%= @event.address_country %></p>
+          <p><%= @event.price %></p>
+        </div>
+      </div>
+    </div>
+
+    <div class = "row">
+      <div class = "col-xs-12 col-sm-4 col-sm-offset-2">
+        <div class="event-more-bottom">
+          <p><%= @event.distinguishing_feature %></p>
+          <p><%= @event.wedding_list %></p>
+        </div>
+      </div>
+    </div>
+
+    <div class = "row">
+      <div class = "col-xs-12 col-sm-4 col-sm-offset-2">
+        <div class="event-users-bottom">
+          <p><%= @event.capacity %> people can join this event</p>
+          <h1>List of participants at the event</h1>
+            <%= render 'users/user_card', { users: @users_of_event } %>
+        </div>
+      </div>
+    </div>
+
+
+    <div class = "row">
+      <div class = "col-xs-12 col-sm-4 col-sm-offset-4">
+            <% if user_signed_in? %>
+        <% if current_user.id == @event.user_id %>
+          <!-- <p>il est capitaine</p> -->
+          <%= link_to "Edit this event", edit_event_path(@event), method: :get, class: "btn btn-success" %>
+          <%= link_to "Delete this event", event_path(@event), method: :delete, class: "btn btn-success" %>
+        <% else %>
+          <!-- <p>il n'est pas capitaine</p> -->
+          <% if current_user.bookings.where(event_id: @event.id).to_a == [] %>
+            <!-- <p>il n'est pas booké</p> -->
+            <%= link_to "Book the event", event_bookings_path(@event), method: :post, class: "btn btn-success" %>
+          <% else %>
+            <!-- <p>il est booké</p> -->
+            <% booking = {} %>
+            <% booking = current_user.bookings.find_by(event_id: @event.id).id %>
+            <%= link_to "Unbook the event", event_booking_path(@event, booking), method: :delete, class: "btn btn-warning" %>
+          <% end %>
+        <% end %>
+        <% else %>
+         <p>You need to login to booked</p>
+        <% end %>
+      </div>
+    </div>
+
+
       </div>
     </div>
   </div>
