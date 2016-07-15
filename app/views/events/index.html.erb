@@ -1,28 +1,12 @@
-<h1>Searched Events</h1>
-
- <div class="wrapper cards-home">
+<div class="wrapper search-bar-home">
   <div class="container">
     <div class = "row">
-      <% @events.each do |event| %>
-        <div class = "col-xs-12 col-sm-4">
-          <div class="card-wrapper-link">
-            <%= link_to event_path(event) do%>
-              <div class="card-home">
-                <div class = "white-rectangle"> </div>
-                  <div class="card-content-left">
-                    <p class= "card-category"><%= event.category %></p>
-                    <h1 class= "card-title"><%= event.title %></h1>
-                    <p class= "card-location"><%= event.address_city %></p>
-                  </div>
-                  <div class="card-content-right">
-                    <p class= "card-avatar avatar"><%= image_tag event.user.picture, size: "50x50" %></p>
-                    <p class= "card-star"><i class="fa fa-star-o" aria-hidden="true"></i></p>
-                  </div>
-                </div>
-              <% end %>
-            </div>
-        </div>
-      <% end %>
+      <div class = "col-xs-12 col-sm-12">
+        <h1>Searched Events</h1>
+      </div>
     </div>
   </div>
 </div>
+
+
+<%= render 'shared/event_search', { events: @events } %>
