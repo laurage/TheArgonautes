@@ -7,7 +7,7 @@
           <div class="card-wrapper-link">
             <%= link_to event_path(event) do%>
               <div class="card-home">
-                <div class = "white-rectangle"></div>
+                <!-- <div class = "white-rectangle"></div> -->
                 <div class = "block-hide">
                   <div class="card-content-block-1">
                     <p class= "card-heart"><i class="fa fa-heart-o" aria-hidden="true"></i></p>
@@ -46,39 +46,20 @@
 <script type="text/javascript">
   $(document).ready(function(){
 
-    // $('.card-content-block-3-bis').hide();
+    $(this).find(".card-content-block-3").show();
+    $(this).find(".card-content-block-3-bis").hide();
 
-    // $('.white-rectangle').hover(
-    //   function(event){
-    //     $('.card-content-block-3').hide();
-    //     $('.card-content-block-3-bis').show();
-    //   },
-    //   function(event){
-    //     $('.card-content-block-3').show();
-    //     $('.card-content-block-3-bis').hide();
-    //   }
-    // )
-
-    // $('.block-hide').hover(function () {
-    //   $(this).children( ".card-content-block-3" ).toggleClass("display");
-    //   console.log("hover");
-    // });
-  // var card = document.getElementsByClassName("white-rectangle");
-
-
-  // var functionHover = function() {
-  //     // var attribute = this.getAttribute("data-myattribute");
-  //     // alert(attribute);
-  //     console.log("hover");
-  //     var content_card = card[0].getElementsByClassName("card-content-block-3");
-  //     content_card.style.display = 'none';
-
-  // };
-
-
-
-  // card[0].addEventListener('mouseover', functionHover, false);
-
+    $('.block-hide').hover(
+        function() {
+          $(this).find(".card-content-block-3").hide();
+          $(this).find(".card-content-block-3-bis").show();
+          console.log("hover");
+        }, function() {
+          $(this).find(".card-content-block-3").show();
+          $(this).find(".card-content-block-3-bis").hide();
+          console.log("out");
+        }
+    );
 
   });
 </script>
