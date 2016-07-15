@@ -20,6 +20,7 @@ gem 'autoprefixer-rails'
 
 gem 'devise'
 gem 'omniauth-facebook'
+gem "algoliasearch-rails"
 
 group :development, :test do
   gem 'binding_of_caller'
