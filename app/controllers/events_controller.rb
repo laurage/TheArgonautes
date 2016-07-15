@@ -5,16 +5,13 @@ class EventsController < ApplicationController
   # GET / events
   # GET / events.json
   def index
-
     search_keys = [:category, :address_city]
     search_params = {}
-
     search_keys.each do |key|
       if params[key] != ""
         search_params[key] = params[key]
       end
     end
-
     @events = Event.where(search_params)
   end
 
@@ -28,9 +25,7 @@ class EventsController < ApplicationController
     @event = Event.new
   end
 
-  # GET / events/1/edit
-  def edit
-  end
+
 
   # POST / events
   # POST / events.json
@@ -47,6 +42,10 @@ class EventsController < ApplicationController
     else
       render :new
     end
+  end
+
+  # GET / events/1/edit
+  def edit
   end
 
   # PATCH/PUT / events/1
