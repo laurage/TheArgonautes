@@ -43,8 +43,12 @@
    <p>You need to login to booked</p>
   <% end %>
 
-
-
+        <div class = "row">
+          <div class = "col-lg-12 col-sm-12">
+          <h1>List of participants at the event</h1>
+            <%= render 'users/user_card', { users: @users_of_event } %>
+          </div>
+        </div>
       </div>
     </div>
   </div>
