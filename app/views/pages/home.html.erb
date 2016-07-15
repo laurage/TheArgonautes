@@ -9,6 +9,7 @@
   </div>
 </div>
 
+
 <div class="wrapper search-bar-home">
   <div class="container">
     <div class = "row">
@@ -22,6 +23,7 @@
                   <option value="food">Food</option>
                 </select>
 
+                <input type="text" data-provide='datepicker' class="datepicker form-box" placeholder ="When?">
 
                 <input class = "form-box form-box-longer" type="text" placeholder ="Where?" name="address_city">
 
@@ -37,3 +39,4 @@
 </div>
 
 <%= render 'shared/event_search', { events: @events } %>
+
