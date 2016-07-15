@@ -3,6 +3,7 @@
     <div class = "row">
       <% events.each do |event| %>
         <div class = "col-xs-12 col-sm-6">
+        <p class= "card-date"><%= event.time_start %></p>
           <div class="card-wrapper-link">
             <%= link_to event_path(event) do%>
               <div class="card-home">
