@@ -3,10 +3,12 @@
     <div class = "row">
       <% events.each do |event| %>
         <div class = "col-xs-12 col-sm-6">
+        <p class= "card-date"><%= event.time_start.strftime("%A %d %B %Y, %I:%M %p")%></p>
           <div class="card-wrapper-link">
             <%= link_to event_path(event) do%>
               <div class="card-home">
-                <div class = "white-rectangle"> </div>
+                <!-- <div class = "white-rectangle"></div> -->
+                <div class = "block-hide">
                   <div class="card-content-block-1">
                     <p class= "card-heart"><i class="fa fa-heart-o" aria-hidden="true"></i></p>
                     <p class= "card-number-likes"><%= 25 %></p>
@@ -19,7 +21,12 @@
                       <h2 class= "card-title"><%= event.title %></h2>
                       <p class= "card-category"><%= event.category %></p>
                     </div>
-                    <p class= "card-location"><%= event.address_city %></p>
+                    <p class= "card-location"><%= event.address_city.capitalize %></p>
+                  </div>
+                  <div class="card-content-block-3-bis">
+                    <div class="card-top-div">
+                      <p class= "card-description"><%= event.description %></p>
+                    </div>
                   </div>
                   <div class="card-content-block-4">
                     <p><%= image_tag event.user.picture, {size: "50x50", class: "card-avatar-picture"} %></p>
@@ -27,11 +34,32 @@
                     <p class= "card-price"><%= event.capacity %></p>
                   </div>
                 </div>
-              <% end %>
-            </div>
+              </div>
+            <% end %>
+          </div>
         </div>
       <% end %>
     </div>
   </div>
 </div>
 
+<script type="text/javascript">
+  $(document).ready(function(){
+
+    $(this).find(".card-content-block-3").show();
+    $(this).find(".card-content-block-3-bis").hide();
+
+    $('.block-hide').hover(
+        function() {
+          $(this).find(".card-content-block-3").hide();
+          $(this).find(".card-content-block-3-bis").show();
+          console.log("hover");
+        }, function() {
+          $(this).find(".card-content-block-3").show();
+          $(this).find(".card-content-block-3-bis").hide();
+          console.log("out");
+        }
+    );
+
+  });
+</script>

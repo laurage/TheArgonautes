@@ -15,9 +15,22 @@
   p {
     font-size: 30px;
     font-weight: 300;
+    padding-top: 20px;
   }
 }
 
 .cards-home{
   background-color: $gray-lighter;
+  padding-top: 10px;
+}
+
+.logo-home{
+  width: 170px;
+  padding: 15px;
+}
+
+
+body{
+  color: $black;
+  font-size: 10px;
 }
