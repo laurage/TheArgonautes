@@ -18,6 +18,12 @@ class EventsController < ApplicationController
   # GET / events/1
   # GET / events/1.json
   def show
+    all_bookings_of_event = Booking.where(event_id: @event.id)
+    @users_of_event = []
+    all_bookings_of_event.each do |booking|
+      @users_of_event << booking.user_id
+    end
+    @users_of_event << @event.user.id
   end
 
   # GET / events/new
