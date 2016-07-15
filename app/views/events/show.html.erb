@@ -34,7 +34,7 @@
         <div class="event-details-right">
           <p><%= @event.address_number %> <%= @event.address_street %></p>
           <p><%= @event.address_postcode %><%= @event.address_city %> <%= @event.address_country %></p>
-          <p><%= @event.price %></p>
+          <p>Price of event : <%= @event.price %>€</p>
         </div>
       </div>
     </div>
@@ -51,14 +51,15 @@
     <div class = "row">
       <div class = "col-xs-12 col-sm-4 col-sm-offset-2">
         <div class="event-users-bottom">
-          <p><%= @event.capacity %> people can join this event</p>
+          <p>Capacity of this event : <%= @event.capacity %> people can join this event</p>
+          <p><%= render 'shared/count_users_in_event', { event: @event } %> personnes are registred on this event</p>
           <p>List of participants at the event</p>
             <%= render 'users/user_card', { users: @users_of_event } %>
         </div>
       </div>
     </div>
 
-
+<!-- gestion des bouttons -->
     <div class = "row">
       <div class = "col-xs-12 col-sm-4 col-sm-offset-4">
             <% if user_signed_in? %>
