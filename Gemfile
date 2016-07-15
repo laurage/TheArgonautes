@@ -20,6 +20,7 @@ gem 'autoprefixer-rails'
 
 gem 'devise'
 gem 'omniauth-facebook'
+gem "algoliasearch-rails"
 
 gem 'bootstrap-datepicker-rails'
 

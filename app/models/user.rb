@@ -4,6 +4,11 @@ class User < ActiveRecord::Base
   has_many :events, dependent: :destroy
 
   has_many :bookings
+  include AlgoliaSearch
+
+  algoliasearch do
+    # all attributes will be sent
+  end
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

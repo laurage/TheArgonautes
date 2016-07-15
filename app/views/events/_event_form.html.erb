@@ -1,0 +1,37 @@
+<%= simple_form_for @event do |f| %>
+    <%= f.input :title, placeholder: 'Title of your event' %>
+    <%= f.input :description, placeholder: 'Description of your event' %>
+    <%= f.input :location_title, placeholder: 'Location of your event' %>
+    <%= f.input :time_start, placeholder: 'Start of event' %>
+    <%= f.input :time_end, placeholder: 'End of event' %>
+    <%= f.input :capacity, placeholder: 'Capacity of event' %>
+
+    <%= f.input :address_number, placeholder: 'Number' %>
+    <%= f.input :address_street, placeholder: 'Street' %>
+    <%= f.input :address_postcode, placeholder: 'Postcode' %>
+    <%= f.input :address_city, placeholder: 'City' %>
+
+  <!--       t.string :picture
+
+
+        t.string :address_number
+        t.string :address_street
+        t.string :address_postcode
+        t.string :address_city
+        t.string :address_contry
+        t.string :distinguishing_feature
+        t.string :wedding_list
+        t.string :category
+        t.string :keywords
+        t.integer :price -->
+
+
+
+
+
+
+
+    <%= f.input :category, placeholder: 'City' %>
+
+    <%= f.button :submit %>
+  <% end %>
