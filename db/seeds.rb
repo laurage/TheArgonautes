@@ -28,7 +28,7 @@ User.destroy_all
         time_start: time_start,
         time_end: time_start + 2.hour,
         capacity: Faker::Number.between(1, 100),
-        picture: "http://lorempixel.com/900/400/",
+        picture: "",
         description: Faker::Lorem.paragraph(2),
         location_title: Faker::Space.planet,
         address_number: Faker::Address.building_number,

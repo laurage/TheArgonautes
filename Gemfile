@@ -21,6 +21,8 @@ gem 'autoprefixer-rails'
 gem 'devise'
 gem 'omniauth-facebook'
 
+gem 'bootstrap-datepicker-rails'
+
 group :development, :test do
   gem 'binding_of_caller'
   gem 'better_errors'
@@ -35,3 +37,4 @@ end
 group :production do
   gem 'rails_12factor'
 end
+
