@@ -31,7 +31,7 @@
                   <div class="card-content-block-4">
                     <p><%= image_tag event.user.picture, {size: "50x50", class: "card-avatar-picture"} %></p>
                     <p class= "card-price">€<%= event.price %></p>
-                    <p class= "card-price"><%= event.capacity %></p>
+                    <p class= "card-price"><%= render 'shared/count_users_in_event', { event: event } %> / <%= event.capacity %></p>
                   </div>
                 </div>
               </div>
