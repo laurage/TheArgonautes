@@ -1,18 +1,7 @@
-<div class="wrapper event-page-header">
-  <div class="container">
-    <div class = "row">
-      <div class = "col-xs-12 col-sm-12">
-        <h1><%= @event.title %></h1>
-      </div>
-    </div>
-  </div>
-</div>
-
-
 <div class="wrapper event-page-content">
   <div class="container">
     <div class = "row">
-      <div class = "col-xs-12 col-sm-12">
+      <div class = "col-xs-12 col-sm-6 col-sm-offset-3">
         <p><%= image_tag @event.picture %></p>
         <p><%= @event.title %></p>
         <p><%= @event.category %></p>
@@ -22,26 +11,40 @@
         <p><%= @event.price %></p>
         <p><%= @event.location_title %></p>
 
-        <p><%= @event.address_number %></p>
-        <p><%= @event.address_street %></p>
-        <p><%= @event.address_postcode %></p>
-        <p><%= @event.address_city %></p>
-        <p><%= @event.address_country %></p>
-        <p><%= @event.time_start %></p>
-        <p><%= @event.time_end %></p>
-        <p><%= @event.capacity %></p>
+        <p><%= @event.address_number %> <%= @event.address_street %></p>
+        <p><%= @event.address_postcode %><%= @event.address_city %> <%= @event.address_country %></p>
+        <p>Event start at :    <%= @event.time_start %></p>
+        <p>Event finished at : <%= @event.time_end %></p>
+        <p>Capacity of event : <%= @event.capacity %></p>
         <p><%= @event.distinguishing_feature %></p>
         <p><%= @event.wedding_list %></p>
 
 
-        <%= link_to "Book the event", event_bookings_path(@event), method: :post %>
-        <% if user_signed_in? %>
-        <% current_user.bookings.each do |b| %>
-         <% if b.event == @event %>
-          <p><%= link_to "Unbook the event", event_booking_path(@event, b), method: :delete %></p>
-          <% end %>
-        <%end %>
-        <% end %>
+
+<p>solution test</p>
+<% if user_signed_in? %>
+  <% if current_user.id == @event.user_id %>
+    <p>il est capitaine</p>
+    <%= link_to "Edit this event", edit_event_path(@event), method: :get, class: "btn btn-success" %>
+    <%= link_to "Delete this event", event_path(@event), method: :delete, class: "btn btn-success" %>
+  <% else %>
+    <p>il n'est pas capitaine</p>
+    <% if current_user.bookings.where(event_id: @event.id).to_a == [] %>
+      <p>il n'est pas booké</p>
+      <%= link_to "Book the event", event_bookings_path(@event), method: :post, class: "btn btn-success" %>
+    <% else %>
+      <p>il est booké</p>
+      <% booking = {} %>
+      <% booking = current_user.bookings.find_by(event_id: @event.id).id %>
+      <%= link_to "Unbook the event", event_booking_path(@event, booking), method: :delete, class: "btn btn-warning" %>
+    <% end %>
+  <% end %>
+  <% else %>
+   <p>You need to login to booked</p>
+  <% end %>
+
+
+
       </div>
     </div>
   </div>
