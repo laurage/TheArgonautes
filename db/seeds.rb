@@ -7,8 +7,9 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 Event.destroy_all
 User.destroy_all
+Booking.destroy_all
 
-5.times do
+10.times do
   user = User.new( {
     email: Faker::Internet.email,
     password: Faker::Number.number(10),
@@ -21,7 +22,7 @@ User.destroy_all
     address: Faker::Address.street_address,
     phone_number: Faker::PhoneNumber.phone_number})
   user.save
-    3.times do
+    5.times do
       time_start = Faker::Time.forward(23, :morning)
       event = Event.new({
         title: Faker::Hipster.sentence(1,true,2),
@@ -60,5 +61,12 @@ end
     address: Faker::Address.street_address,
     phone_number: Faker::PhoneNumber.phone_number})
   user.save
+  e = Event.last.id
+  5.times do
+    booking = Booking.new({
+      user_id: user.id,
+      event_id: [e, e - 1,e - 2, e - 3, e - 4, e - 5, e - 6, e - 7, e - 8,e - 9, e - 10].sample})
+    booking.save!
+  end
 end
 
