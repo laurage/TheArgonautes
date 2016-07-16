@@ -1,0 +1,35 @@
+<% if users != nil %>
+  <% users.each do |user| %>
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <div class="row">
+        <div class="col-xs-12 ">
+
+          <div class="col-xs-2 user-card-block-1 text-center">
+            <!-- <p>logo event</p> -->
+            <p><%= image_tag "navbar_my_events.png", {class: "events-logo-top"} %><p>
+    <!--         <p>nb event booked user</p> -->
+            <%= Booking.where(user_id: user.id).count + Event.where(user_id: user.id).count %>
+    <!--         <p>nb event user created</p> -->
+            <p><%= image_tag "couronne.png", {class: "couronne-small"} %><p>
+            <p><%= image_tag "navbar_my_events.png", {class: "events-logo-bottom"} %><p>
+            <%= Event.where(user_id: user.id).count %>
+          </div>
+
+          <div class="class col-xs-2 user-card-block-2 text-center">
+            <!-- <p>couronne si evnet create by user</p> -->
+  <!--           <p>avatar user</p> -->
+            <p><%= image_tag User.find(user.id).picture, {size: "50x50", class: "card-avatar-picture"} %></p>
+          </div>
+
+          <div class="class col-xs-8 user-card-block-3">
+            <p><%= User.find(user.id).first_name %> <%= User.find(user.id).last_name %></p>
+            <p><%= User.find(user.id).description %></p>
+            <p>City</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+
