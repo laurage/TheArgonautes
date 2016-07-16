@@ -1,6 +1,6 @@
 <div class="wrapper event-page-content">
   <div class="container">
-    <div class = "row">
+    <div class = "row row-block">
       <div class = "col-xs-12 col-sm-4 col-sm-offset-2">
 
         <div class="event-image-block">
@@ -20,7 +20,7 @@
       </div>
     </div>
 
-    <div class = "row">
+    <div class = "row row-block">
       <div class = "col-xs-12 col-sm-4 col-sm-offset-2">
 
         <div class="event-main-center">
@@ -34,12 +34,12 @@
         <div class="event-details-right">
           <p><%= @event.address_number %> <%= @event.address_street %></p>
           <p><%= @event.address_postcode %><%= @event.address_city %> <%= @event.address_country %></p>
-          <p><%= @event.price %></p>
+          <p>Price : <%= @event.price %> €</p>
         </div>
       </div>
     </div>
 
-    <div class = "row">
+    <div class = "row row-block">
       <div class = "col-xs-12 col-sm-4 col-sm-offset-2">
         <div class="event-more-bottom">
           <p><%= @event.distinguishing_feature %></p>
@@ -48,19 +48,17 @@
       </div>
     </div>
 
-    <div class = "row">
+    <div class = "row row-block">
       <div class = "col-xs-12 col-sm-4 col-sm-offset-2">
         <div class="event-users-bottom">
           <p><%= @event.capacity %> people can join this event</p>
-          <p>List of participants at the event</p>
-            <%= render 'users/user_card', { users: @users_of_event } %>
         </div>
       </div>
     </div>
 
 
-    <div class = "row">
-      <div class = "col-xs-12 col-sm-4 col-sm-offset-4">
+    <div class = "row row-block">
+      <div class = "col-xs-12 col-sm-4 col-sm-offset-4 text-center">
             <% if user_signed_in? %>
         <% if current_user.id == @event.user_id %>
           <!-- <p>il est capitaine</p> -->
@@ -87,6 +85,15 @@
 
       </div>
     </div>
+  </div>
+</div>
+
+
+
+<div class="container">
+<div class="text-center"><h1>List of participants at the event</h1></div>
+  <div class="row">
+    <%= render 'users/user_card', { users: @users_of_event, event: @event } %>
   </div>
 </div>
 
