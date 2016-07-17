@@ -1,1 +1,6 @@
-<%= Booking.where(event_id: event).count %>
+<% numberPeopleOnEvent = Booking.where(event_id: event).count %>
+
+<!-- Include capitaine event in count
+ -->
+<%= numberPeopleOnEvent = numberPeopleOnEvent + 1 %>
+
