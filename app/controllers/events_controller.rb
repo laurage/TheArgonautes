@@ -84,6 +84,7 @@ class EventsController < ApplicationController
                                       :time_end,
                                       :capacity,
                                       :picture,
+                                      :picture_cache,
                                       :description,
                                       :location_title,
                                       :address_number,
