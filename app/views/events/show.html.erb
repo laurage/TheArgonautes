@@ -4,8 +4,13 @@
       <div class = "col-xs-12 col-sm-4 col-sm-offset-2">
 
         <div class="event-image-block">
-          <p><%= image_tag "badge_square_nature.png", {class: "event-image"} %></p>
+          <!-- <p><%= image_tag "badge_square_nature.png", {class: "event-image"} %></p> -->
   <!--         @event.picture -->
+
+        <!-- if nothing in source and alt, no image has been uploaded -->
+
+        <%= cl_image_tag @event.picture.url(:event_view), class: "event-image" %>
+
         </div>
 
       </div>

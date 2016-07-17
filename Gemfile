@@ -24,6 +24,11 @@ gem 'omniauth-facebook'
 
 gem 'bootstrap-datepicker-rails'
 
+gem 'cloudinary'
+
+gem 'carrierwave'
+
+
 group :development, :test do
   gem 'binding_of_caller'
   gem 'better_errors'
@@ -31,7 +36,6 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'spring'
-
 
 end
 
