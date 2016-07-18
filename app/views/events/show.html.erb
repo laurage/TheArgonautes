@@ -1,7 +1,8 @@
 <div class="wrapper event-page-content">
-  <div class="container">
+  <div class="container ">
+
     <div class = "row row-block">
-      <div class = "col-xs-12 col-sm-4 col-sm-offset-2">
+      <div class = "col-xs-12 col-sm-4 col-sm-offset-2 ">
 
         <div class="event-image-block">
           <!-- <p><%= image_tag "badge_square_nature.png", {class: "event-image"} %></p> -->
@@ -17,29 +18,48 @@
       <div class = "col-xs-12 col-sm-3 col-sm-offset-1">
 
         <div class="event-top-right-box">
-          <p><%= image_tag @event.user.picture, {size: "90x90", class: "event-capitaine-avatar"} %></p>
-          <p class="event-category"><%= @event.category %></p>
-          <p><%= @event.time_start.strftime("%A %d %B %Y, %I:%M %p") %></p>
-          <p>For : <%= ((@event.time_end - @event.time_start)/1200).to_i %> hours</p>
-        </div>
-      </div>
-    </div>
 
+          <p><%= image_tag @event.user.picture, {size: "70x70", class: "event-capitaine-avatar"} %></p>
+
+          <p class="event-category"><%= @event.category %></p>
+          <p><i class="fa fa-calendar-check-o" aria-hidden="true"></i>
+ <%= @event.time_start.strftime("%A %d %B %Y") %></p>
+          <p><i class="fa fa-clock-o" aria-hidden="true"></i>
+ <%= @event.time_start.strftime("%I:%M %p") %> - <%= @event.time_end.strftime("%I:%M %p") %></p>
+          <!-- For : <%= ((@event.time_end - @event.time_start)/1200).to_i %> hours/ -->
+          <p><i class="fa fa-eur" aria-hidden="true"></i>
+<%= @event.price %>€</p>
+        </div>
+        </div>
+
+    </div>
     <div class = "row row-block">
       <div class = "col-xs-12 col-sm-4 col-sm-offset-2">
 
         <div class="event-main-center">
-          <p><%= @event.title %></p>
-          <p><%= @event.location_title %></p>
+          <p class="event-title"><%= @event.title %></p>
+
+          <p class="event-location-title"><%= @event.location_title %></p>
           <p><%= @event.description %></p>
         </div>
       </div>
 
       <div class = "col-xs-12 col-sm-3 col-sm-offset-1">
         <div class="event-details-right">
+          <p><i class="fa fa-map-marker" aria-hidden="true"></i>
+</p>
           <p><%= @event.address_number %> <%= @event.address_street %></p>
           <p><%= @event.address_postcode %><%= @event.address_city %> <%= @event.address_country %></p>
-          <p>Price of event : <%= @event.price %>€</p>
+          <% if user_signed_in? %>
+            <% if current_user.id == @event.user_id %>
+              <%= link_to edit_event_path(@event), method: :get do %>
+                <i class="fa fa-pencil-square-o event-btns" aria-hidden="true"></i>
+              <% end %>
+              <%= link_to event_path(@event), method: :delete do %>
+                <i class="fa fa-trash event-btns" aria-hidden="true"></i>
+              <% end %>
+            <%end%>
+          <%end%>
         </div>
       </div>
     </div>
@@ -55,24 +75,18 @@
 
     <div class = "row row-block">
       <div class = "col-xs-12 col-sm-4 col-sm-offset-2">
-        <div class="event-users-bottom">
-
-          <p>Capacity of this event : <%= @event.capacity %> people can join this event</p>
-          <p><%= render 'shared/count_users_in_event', { event: @event } %> personnes are registred on this event</p>
-
-        </div>
       </div>
     </div>
+</div>
 
-
-    <div class = "row row-block">
+    <div class = "row row-block event-btns">
       <div class = "col-xs-12 col-sm-4 col-sm-offset-4 text-center">
-            <% if user_signed_in? %>
-        <% if current_user.id == @event.user_id %>
-          <!-- <p>il est capitaine</p> -->
-          <%= link_to "Edit this event", edit_event_path(@event), method: :get, class: "btn btn-success" %>
-          <%= link_to "Delete this event", event_path(@event), method: :delete, class: "btn btn-success" %>
-        <% else %>
+
+
+      <%= render 'shared/count_users_in_event', { event: @event } %> / <%= @event.capacity %>
+
+      <% if user_signed_in? %>
+        <% if current_user.id != @event.user_id %>
           <!-- <p>il n'est pas capitaine</p> -->
           <% if current_user.bookings.where(event_id: @event.id).to_a == [] %>
             <!-- <p>il n'est pas booké</p> -->
@@ -84,9 +98,9 @@
             <%= link_to "Unbook the event", event_booking_path(@event, booking), method: :delete, class: "btn btn-warning" %>
           <% end %>
         <% end %>
-        <% else %>
-         <p>You need to login to booked</p>
-        <% end %>
+      <% else %>
+         <p>You need to login to book</p>
+      <% end %>
       </div>
     </div>
 
@@ -94,12 +108,12 @@
       </div>
     </div>
   </div>
-</div>
+
 
 
 
 <div class="container">
-<div class="text-center"><h1>List of participants at the event</h1></div>
+<div class="text-center"><p>List of participants at the event</p></div>
   <div class="row">
     <%= render 'users/user_card', { users: @users_of_event, event: @event } %>
   </div>

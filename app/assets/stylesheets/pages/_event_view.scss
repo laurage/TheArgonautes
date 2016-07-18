@@ -1,19 +1,41 @@
-.row-block{
-  // border: 1px solid red;
+.container-block{
+background-color: $gray-light;
 }
+
+.event-btns{
+  font-size: 25px;
+  padding-top:25px;
+}
+
+
 .event-page-content{
+
+
+
+  .row-block{
+    // position: relative;
+    padding-bottom:20px;
+
+
+  }
+
   .event-image-block{
     text-align:center;
     display: block;
+    padding-bottom: 25px;
+
 
     .event-image{
       border-radius: 50%;
       margin: 25px 0 0 0;
+      border: 7px solid $green;
     }
   }
 
   .event-top-right-box{
     margin: 25px 0 0 0;
+    position: absolute;
+    top:100px;
 
     .event-capitaine-avatar{
       border-radius: 50%;
@@ -31,11 +53,21 @@
   }
 
   .event-main-center{
+    .event-title{
+      font-weight: 700;
+    }
+
+    .event-location-title{
+      text-transform: uppercase;
+    }
+
 
   }
 
   .event-details-right{
-
+    .fa-map-marker{
+      font-size: 36px;
+    }
   }
 
   .event-more-bottom{
